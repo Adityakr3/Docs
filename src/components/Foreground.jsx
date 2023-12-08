@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import Card from "./Card";
+import { Nav } from "./Nav";
 
 const Foreground = () => {
-
   const ref = useRef(null);
 
   const data = [
@@ -21,7 +21,7 @@ const Foreground = () => {
       fileSize: ".5mb",
       close: true,
       tag: {
-        isOpen:true,
+        isOpen: true,
         tagTitle: "Download Now",
         tagColor: "sky",
       },
@@ -39,10 +39,15 @@ const Foreground = () => {
   ];
 
   return (
-    <div ref={ref} className="fixed top-0 left-0 z-[3] w-full h-screen flex gap-5">
-      {data?.map((item, idx) => (
-        <Card data={item} reference = {ref} />
-      ))}
+    <div
+      className="fixed top-0 left-0 z-[3] w-full h-screen flex flex-col"
+    >
+      <Nav />
+      <div ref={ref} className="p-3 flex-shrink-0 flex gap-5 w-full h-[90vh]">
+        {data?.map((item, idx) => (
+          <Card data={item} reference={ref} />
+        ))}
+      </div>
     </div>
   );
 };
