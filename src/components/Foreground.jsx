@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import Card from "./Card";
-import { motion } from "framer-motion"
 
 const Foreground = () => {
 
